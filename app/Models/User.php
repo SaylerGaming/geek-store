@@ -46,4 +46,9 @@ class User extends \TCG\Voyager\Models\User
     {
         return $this->belongsToMany(Product::class);
     }
+
+    public function findFavorite($id)
+    {
+        return $this->belongsToMany(Product::class)->where('product_id', $id)->first();
+    }
 }

@@ -17,6 +17,10 @@ use App\Http\Controllers\MainController;
 */
 
 Route::get('/', [MainController::class, 'index']);
+Route::get('/categories', [MainController::class, 'categories']);
+Route::get('/category/{id}', [MainController::class, 'category']);
+Route::get('/subcategory/{id}', [MainController::class, 'subcategory']);
+Route::get('/product/{product}', [MainController::class, 'product']);
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/auth', [AuthController::class, 'auth'])->name('auth');
@@ -26,6 +30,8 @@ Route::group(['middleware' => 'guest'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('/favorite/{id}', [MainController::class, 'favorite']);
+    Route::get('/favorites', [MainController::class, 'favorites']);
 });
 
 

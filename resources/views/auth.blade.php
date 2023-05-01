@@ -20,9 +20,26 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.2.0/mdb.min.css"
     rel="stylesheet"
     />
+    <title>Geek Store</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/flaticon.css">
+    <link rel="stylesheet" href="/assets/css/slicknav.css">
+    <link rel="stylesheet" href="/assets/css/animate.min.css">
+    <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="/assets/css/slick.css">
+    <link rel="stylesheet" href="/assets/css/nice-select.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
-    <div class="container" style="width: 50%; margin-left: 25%">
+    
+    @include('layouts.navbar')
+    <div style="display:flex; justify-content:center"></div>
+    <div class="container" style="width: 500px">
         <!-- Pills navs -->
     <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
         <li class="nav-item" role="presentation">
