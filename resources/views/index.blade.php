@@ -15,7 +15,7 @@
                                     <p data-animation="fadeInLeft" data-delay=".7s" data-duration="2000ms">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat is aute irure.</p>
                                     <!-- Hero-btn -->
                                     <div class="hero__btn" data-animation="fadeInLeft" data-delay=".8s" data-duration="2000ms">
-                                        <a href="industries.html" class="btn hero-btn">Shop Now</a>
+                                        <a href="/categories" class="btn hero-btn">Shop Now</a>
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +47,9 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
-                                <img src="/storage/{{ $product->image }}" alt="">
+                                <a href="/product/{{ $product->id }}">
+                                    <img src="/storage/{{ $product->image }}" alt="">
+                                </a>
                                 <div class="img-cap">
                                     <form action="/storage/{{ $product->id }}" method="POST"> 
                                         @csrf
@@ -68,7 +70,7 @@
                 <!-- Button -->
                 <div class="row justify-content-center">
                     <div class="room-btn pt-70">
-                        <a href="catagori.html" class="btn view-btn1">View More Products</a>
+                        <a href="/categories" class="btn view-btn1">View More Products</a>
                     </div>
                 </div>
             </div>

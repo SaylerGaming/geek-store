@@ -77,7 +77,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
                     <div class="single-footer-caption mb-50">
                         <div class="footer-tittle">
-                            <h4>New Products</h4>
+                            <h4>Our categories</h4>
                             <ul>
                                 @foreach (App\Models\Category::orderby('created_at', 'desc')->limit(4)->get() as $category)
                                 <li><a href="#">{{ $category->name }}</a></li>
