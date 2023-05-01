@@ -55,4 +55,10 @@ class MainController extends Controller
         $user = Auth::user();
         return view('favorites', compact('user'));
     }
+
+    public function search(Request $request){
+        $query = $request->name;
+        $products = product::where('name', 'LIKE', '%'.$query.'%')->get();
+        return view('find', compact('products', 'query'));
+    }
 }

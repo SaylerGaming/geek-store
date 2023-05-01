@@ -51,7 +51,7 @@
                         <div class="single-footer-caption mb-30">
                             <!-- logo -->
                             <div class="footer-logo">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" width="80%"></a>
+                                <a href="index.html"><img src="/assets/img/logo/logo.png" width="80%"></a>
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">
@@ -127,8 +127,8 @@
 <div class="search-model-box">
 <div class="h-100 d-flex align-items-center justify-content-center">
 <div class="search-close-btn">+</div>
-<form class="search-model-form">
-    <input type="text" id="search-input" placeholder="Searching key.....">
+<form class="search-model-form" action="/find" method="get">
+    <input type="text" id="search-input" name="name" placeholder="Searching key.....">
 </form>
 </div>
 </div>

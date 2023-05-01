@@ -21,6 +21,7 @@ Route::get('/categories', [MainController::class, 'categories']);
 Route::get('/category/{id}', [MainController::class, 'category']);
 Route::get('/subcategory/{id}', [MainController::class, 'subcategory']);
 Route::get('/product/{product}', [MainController::class, 'product']);
+Route::get('/find', [MainController::class, 'search']);
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/auth', [AuthController::class, 'auth'])->name('auth');
