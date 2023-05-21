@@ -43,7 +43,7 @@
                     <a href="/favorite/{{ $product->id }}" class="btn btn-outline-primary mr-4">add to favorite</a>
                 @endif
                 @endauth
-                <a href="/add-cart/{{ $product->id }}" class="btn btn-outline-primary">add to cart</a>
+                <a href="/product/{{ $product->id }}/add" class="btn btn-outline-primary">add to cart</a>
 
             </div>
         </div>

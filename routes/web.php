@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\MainController;
+use App\Http\Controllers\{
+    AuthController,
+    MainController,
+    CartController
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +25,9 @@ Route::get('/category/{id}', [MainController::class, 'category']);
 Route::get('/subcategory/{id}', [MainController::class, 'subcategory']);
 Route::get('/product/{product}', [MainController::class, 'product']);
 Route::get('/find', [MainController::class, 'search']);
+
+Route::get('/cart', [CartController::class, 'cart']);
+Route::get('/product/{id}/add', [CartController::class, 'add']);
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/auth', [AuthController::class, 'auth'])->name('auth');
