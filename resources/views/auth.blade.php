@@ -71,6 +71,12 @@
     
     <!-- Pills content -->
     <div class="tab-content">
+        <div class="d-flex align-items-center justify-content-center  mb-3">
+            <a href="/login-google"><img src="https://img.icons8.com/?size=512&id=36987&format=png" style="width:40px" class="mr-2"></a>
+            <a href="/login-google" style="color:#7590d3">Войти с помощью Google</a>
+            
+
+        </div>
         <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
         <form method="POST" action="/login">
             @csrf

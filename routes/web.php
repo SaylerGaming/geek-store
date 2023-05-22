@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     AuthController,
     MainController,
-    CartController
+    CartController,
+    SocialAuthController
 };
 
 /*
@@ -33,6 +34,8 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/auth', [AuthController::class, 'auth'])->name('auth');
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login']);
+    Route::get('/login-google', [SocialAuthController::class, 'redirectToProvider'])->name('google.login');
+    Route::get('/auth/google/callback', [SocialAuthController::class, 'handleCallback'])->name('google.login.callback');
 });
 
 Route::group(['middleware' => 'auth'], function () {
@@ -45,3 +48,4 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
