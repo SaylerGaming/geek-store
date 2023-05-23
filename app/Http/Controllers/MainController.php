@@ -7,7 +7,9 @@ use App\Models\{
     Category,
     Subcategory,
     User,
-    Product
+    Product,
+    Cart,
+    Order
 };
 
 use Auth;
@@ -16,6 +18,13 @@ use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
+
+    public function __construct() { 
+        if(!session('cart')){
+            session(['cart' => []]);
+        }
+    }
+
     public function index(){
         $products = Product::where('is_available', 1)->where('is_prioritised', 0)->inRandomOrder()->limit(6)->get();
         $choises = Product::where('is_available', 1)->where('is_prioritised', 1)->inRandomOrder()->limit(2)->get();
@@ -60,5 +69,16 @@ class MainController extends Controller
         $query = $request->name;
         $products = product::where('name', 'LIKE', '%'.$query.'%')->get();
         return view('find', compact('products', 'query'));
+    }
+
+    public function orders(){
+        $carts = Cart::where('user_id', Auth::id())->with('orders')->orderBy('created_at', 'DESC')->get();
+        return view('orders', compact('carts'));
+    }
+
+    public function order($id){
+        $cart = Cart::where('user_id', Auth::id())->where('id', $id)->first();
+        $orders = Order::where('cart_id', $id)->with('product')->get();
+        return view('order', compact('cart', 'orders'));
     }
 }

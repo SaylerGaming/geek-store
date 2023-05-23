@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
-                                <h2>Cart</h2>
+                                <h2>Orders</h2>
                             </div>
                         </div>
                     </div>
@@ -40,24 +40,13 @@
                 </div>
                 <!-- Nav Card -->
                 <div class="tab-content" id="nav-tabContent">
-                    @foreach ($products as $product)
+                    @foreach ($carts as $cart)
                         <div class="d-flex justify-content-between">
-                            <img style="width:100px" src="/storage/{{ $product->image }}">
-                            <p>{{ $product->name }}</p>
-                            <p>{{ $product->price }} тг</p>
+                            <a href="/order/{{ $cart->id }}" style="color:black">Order number {{ $cart->id }}</a>
+                            <p>{{ $cart->price }} тг</p>
+                            <p>{{ $cart->status }}</p>
                         </div>
                     @endforeach
-                    @if(count($products) > 0)
-                        <h2 class="text-right">Total: {{ $sum }} тг</h2>
-                        <div class="d-flex flex-row-reverse">
-                        <form action="/cart/buy" method="post">
-                            @csrf
-                            <button type="submit" class="btn btn-rounded mb-4">buy</button>      
-                        </form>
-                    @else
-                        <h2 class="text-center">There is nothing there... yet</h2>
-                    @endif
-                </div>
 
                 </div>
                 <!-- End Nav Card -->

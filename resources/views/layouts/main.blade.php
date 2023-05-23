@@ -33,7 +33,6 @@
         </div>
     </div>
     <!-- Preloader Start -->
-    
     @include('layouts.navbar')
 
     @yield('content')

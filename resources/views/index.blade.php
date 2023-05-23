@@ -43,6 +43,9 @@
                     </div>
                 </div>
                 <div class="row">
+                    @php
+                        $cart = session('cart')   
+                    @endphp
                     @foreach ($products as $product)
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
@@ -51,12 +54,19 @@
                                     <img src="/storage/{{ $product->image }}" alt="">
                                 </a>
                                 <div class="img-cap">
-                                    <form action="/storage/{{ $product->id }}" method="POST"> 
-                                        @csrf
-                                    <span><button type="submit" style="background: none; border: none;"> to cart</a></span></button></form>
-                                </div>
-                                <div class="favorit-items">
-                                    <span class="flaticon-heart"></span>
+                                    @if (!in_array($product->id, $cart))
+                                            <a href="/product/{{ $product->id }}/add">
+                                                <div class="img-cap">
+                                                    <span>Add to cart</span>
+                                                </div>
+                                            </a>
+                                        @else
+                                            <a href="/product/{{ $product->id }}/remove">
+                                                <div class="img-cap">
+                                                    <span>Remove from cart</span>
+                                                </div>
+                                            </a>
+                                        @endif
                                 </div>
                             </div>
                             <div class="popular-caption">

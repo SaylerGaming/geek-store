@@ -9,6 +9,13 @@ use Illuminate\Support\Facades\Hash;
  
 class AuthController extends Controller
 {
+
+    public function __construct() { 
+        if(!session('cart')){
+            session(['cart' => []]);
+        }
+    }
+
     public function auth()
     {
         return view('auth');
@@ -19,22 +26,13 @@ class AuthController extends Controller
         if($request->register_password != $request->register_password_confirtmation) {
             return back()->with('register-error', 'passwords don`t match');
         }
-        $user = new User();
- 
-        $user->name = $request->register_name;
-        $user->email = $request->register_email;
-        $user->password = Hash::make($request->register_password);
- 
-        $user->save();
+        $user = User::create([
+            'name' => $request->register_name,
+            'email' => $request->register_email,
+            'password' => Hash::make($request->register_password)
+        ]);
 
-        $credetials = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
-
-        if (Auth::attempt($credetials)) {
-            return redirect('/')->with('success', 'Register successfully');
-        }
+        Auth::login($user, true);
  
         return redirect('/')->with('success', 'Register successfully');
     }

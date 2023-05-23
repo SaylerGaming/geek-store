@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="popular-caption">
                                         <h3><a href="/product/{{ $product->id }}">{{ $product->name }}</a></h3>
-                                        <span>$ {{ $product->price }} тг</span>
+                                        <span>{{ $product->price }} тг</span>
                                     </div>
                                 </div>
                             </div>

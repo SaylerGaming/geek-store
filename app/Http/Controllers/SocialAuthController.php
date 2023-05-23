@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Hash;
 
 class SocialAuthController extends Controller
 {
+
+    public function __construct() { 
+        if(!session('cart')){
+            session(['cart' => []]);
+        }
+    }
+
     public function redirectToProvider(){
         return Socialite::driver('google')->redirect();
     }

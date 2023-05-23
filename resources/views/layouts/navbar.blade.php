@@ -24,8 +24,8 @@
                                             <li><a class="dropdown-item" href="/logout">Logout</a></li>
                                         </ul>
                                     </li>
+                                    <li><a href="/orders">orders</a></li>
                                 @endauth
-                                <li><a href="/orders">orders</a></li>
                             </ul>
                         </nav>
                     </div>

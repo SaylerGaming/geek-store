@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Cart extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['user_id', 'price', 'status'];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

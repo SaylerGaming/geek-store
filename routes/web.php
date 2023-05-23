@@ -28,7 +28,9 @@ Route::get('/product/{product}', [MainController::class, 'product']);
 Route::get('/find', [MainController::class, 'search']);
 
 Route::get('/cart', [CartController::class, 'cart']);
+Route::post('/cart/buy', [CartController::class, 'buy']);
 Route::get('/product/{id}/add', [CartController::class, 'add']);
+Route::get('/product/{id}/remove', [CartController::class, 'remove']);
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/auth', [AuthController::class, 'auth'])->name('auth');
@@ -42,6 +44,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::get('/favorite/{id}', [MainController::class, 'favorite']);
     Route::get('/favorites', [MainController::class, 'favorites']);
+    Route::get('/orders', [MainController::class, 'orders']);
+    Route::get('/order/{id}', [MainController::class, 'order']);
 });
 
 

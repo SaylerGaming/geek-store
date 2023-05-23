@@ -1,6 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
+@php
+    $cart = session('cart')   
+@endphp
 <main>
     <!-- Hero Area Start-->
     <div class="slider-area ">
@@ -43,7 +46,11 @@
                     <a href="/favorite/{{ $product->id }}" class="btn btn-outline-primary mr-4">add to favorite</a>
                 @endif
                 @endauth
-                <a href="/product/{{ $product->id }}/add" class="btn btn-outline-primary">add to cart</a>
+                @if (!in_array($product->id, $cart))
+                    <a href="/product/{{ $product->id }}/add" class="btn btn-outline-primary">add to cart</a>
+                @else
+                    <a href="/product/{{ $product->id }}/add" class="btn btn-outline-primary">remove from cart</a>
+                @endif
 
             </div>
         </div>

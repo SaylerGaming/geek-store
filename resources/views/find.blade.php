@@ -43,6 +43,9 @@
                     <!-- card one -->
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="row">
+                            @php
+                                $cart = session('cart')   
+                            @endphp
                             @foreach ($products as $product)
                             <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                 <div class="single-popular-items mb-50 text-center">
@@ -50,15 +53,23 @@
                                         <a href="/product/{{ $product->id }}">
                                             <img src="/storage/{{ $product->image }}" alt="">
                                         </a>
-                                        <a href="/add-cart/{{ $product->id }}">
-                                            <div class="img-cap">
-                                                <span>Add to cart</span>
-                                            </div>
-                                        </a>
+                                        @if (!in_array($product->id, $cart))
+                                            <a href="/product/{{ $product->id }}/add">
+                                                <div class="img-cap">
+                                                    <span>Add to cart</span>
+                                                </div>
+                                            </a>
+                                        @else
+                                            <a href="/product/{{ $product->id }}/remove">
+                                                <div class="img-cap">
+                                                    <span>Remove from cart</span>
+                                                </div>
+                                            </a>
+                                        @endif
                                     </div>
                                     <div class="popular-caption">
                                         <h3><a href="/product/{{ $product->id }}">{{ $product->name }}</a></h3>
-                                        <span>$ {{ $product->price }} тг</span>
+                                        <span>{{ $product->price }} тг</span>
                                     </div>
                                 </div>
                             </div>

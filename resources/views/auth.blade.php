@@ -73,9 +73,7 @@
     <div class="tab-content">
         <div class="d-flex align-items-center justify-content-center  mb-3">
             <a href="/login-google"><img src="https://img.icons8.com/?size=512&id=36987&format=png" style="width:40px" class="mr-2"></a>
-            <a href="/login-google" style="color:#7590d3">Войти с помощью Google</a>
-            
-
+            <a href="/login-google" style="color:#7590d3">Войти c помощью Google</a>
         </div>
         <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
         <form method="POST" action="/login">
@@ -98,18 +96,19 @@
             </div>
             <!-- Submit button -->
             <div class="text-center">
-                <button type="submit" class="btn btn-outline-success btn-rounded mb-4">Sign in</button>
+                <button type="submit" class="btn btn-rounded mb-4">Sign in</button>
             </div>
         </form>
         </div>
         <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
         <form method="POST" action="/register">
+            @csrf
             @if(Session::has('register-error'))
                 <div class="alert alert-danger" role="alert">
                     {{ Session::get('register-error') }}
                 </div>
             @endif
-            @csrf
+            
             <!-- Name input -->
             <div class="form-outline mb-4">
             <input type="text" id="registerName" class="form-control" name="register_name"/>
@@ -136,7 +135,7 @@
     
             <!-- Submit button -->
             <div class="text-center">
-                <button type="submit" class="btn btn-outline-success btn-rounded mb-3">Sign in</button>
+                <button type="submit" class="btn btn-rounded mb-3">Sign in</button>
             </div>
         </form>
         </div>
